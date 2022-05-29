@@ -1776,10 +1776,10 @@ __STATIC_FORCEINLINE void __disable_irq(void)
  8001264:	e7fe      	b.n	8001264 <Error_Handler+0x8>
 
 08001266 <lidar_start_scan>:
-
 mobirec_lidar_StatusTypeDef lidar_check_node(mobirec_lidar_HandleTypeDef* lidar);
 
 mobirec_lidar_StatusTypeDef lidar_read_node(mobirec_lidar_HandleTypeDef* lidar);
+
 
 mobirec_lidar_StatusTypeDef lidar_start_scan(mobirec_lidar_HandleTypeDef* lidar){
  8001266:	b580      	push	{r7, lr}
@@ -1843,7 +1843,7 @@ mobirec_lidar_StatusTypeDef lidar_check_scan_answer_received(mobirec_lidar_Handl
  80012d0:	b083      	sub	sp, #12
  80012d2:	af00      	add	r7, sp, #0
  80012d4:	6078      	str	r0, [r7, #4]
- // checking that the answer sent by the lidar is the correct one that confirms the scanning status (see datasheet)
+ // checking that the answer sent by the lidar is the correct one
 	if(lidar->buff[0]==0xa5 && lidar->buff[1] == 0x5a &&
  80012d6:	687b      	ldr	r3, [r7, #4]
  80012d8:	791b      	ldrb	r3, [r3, #4]

@@ -14,6 +14,7 @@ mobirec_lidar_StatusTypeDef lidar_check_node(mobirec_lidar_HandleTypeDef* lidar)
 
 mobirec_lidar_StatusTypeDef lidar_read_node(mobirec_lidar_HandleTypeDef* lidar);
 
+
 mobirec_lidar_StatusTypeDef lidar_start_scan(mobirec_lidar_HandleTypeDef* lidar){
 	uint8_t rplidar_stop_msg[] = { SYNC_BYTE, CMD_STOP};
 	uint8_t rplidar_scan_msg[] = { SYNC_BYTE, CMD_SCAN};
@@ -29,7 +30,7 @@ mobirec_lidar_StatusTypeDef lidar_start_scan(mobirec_lidar_HandleTypeDef* lidar)
 }
 
 mobirec_lidar_StatusTypeDef lidar_check_scan_answer_received(mobirec_lidar_HandleTypeDef* lidar){
- // checking that the answer sent by the lidar is the correct one that confirms the scanning status (see datasheet)
+ // checking that the answer sent by the lidar is the correct one
 	if(lidar->buff[0]==0xa5 && lidar->buff[1] == 0x5a &&
 	  			  lidar->buff[2]==0x5 && lidar->buff[3] == 0 && lidar->buff[4] == 0 &&
 				  lidar->buff[5] ==0x40 && lidar->buff[6] == 0x81){
