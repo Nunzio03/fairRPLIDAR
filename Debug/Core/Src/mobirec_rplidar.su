@@ -1,0 +1,5 @@
+mobirec_rplidar.c:17:29:lidar_start_scan	24	static
+mobirec_rplidar.c:31:29:lidar_check_scan_answer_received	16	static
+mobirec_rplidar.c:41:29:lidar_read_node	24	static
+mobirec_rplidar.c:52:29:lidar_check_node	16	static
+mobirec_rplidar.c:61:29:lidar_get_point	24	static
