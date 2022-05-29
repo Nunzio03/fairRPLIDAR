@@ -29,7 +29,7 @@ mobirec_lidar_StatusTypeDef lidar_start_scan(mobirec_lidar_HandleTypeDef* lidar)
 }
 
 mobirec_lidar_StatusTypeDef lidar_check_scan_answer_received(mobirec_lidar_HandleTypeDef* lidar){
-
+ // checking that the answer sent by the lidar is the correct one that confirms the scanning status (see datasheet)
 	if(lidar->buff[0]==0xa5 && lidar->buff[1] == 0x5a &&
 	  			  lidar->buff[2]==0x5 && lidar->buff[3] == 0 && lidar->buff[4] == 0 &&
 				  lidar->buff[5] ==0x40 && lidar->buff[6] == 0x81){
@@ -68,7 +68,7 @@ mobirec_lidar_StatusTypeDef lidar_get_point(mobirec_lidar_HandleTypeDef* lidar){
 
 	if(s == MOBI_OK){
 		lidar->angle = ((lidar->buff[1] >> 1) | (lidar->buff[2] << 7))/64.0; //deg
-		lidar->distance = ((lidar->buff[3] | (lidar->buff[4]<<8))/4.0)/1000; // m
+		lidar->distance = ((lidar->buff[3] | (lidar->buff[4]<<8))/4.0)/1000; // meters
 		lidar->start_scan_flag = lidar->buff[0] & 0x1;
 		lidar->quality = lidar->buff[0]>>2;
 	}

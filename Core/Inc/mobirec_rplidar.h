@@ -18,19 +18,14 @@ typedef enum
 } mobirec_lidar_StatusTypeDef;
 
 typedef struct __mobirec_lidar_Handle
-{
-	/*utilities */
+{	/*utilities */
 	UART_HandleTypeDef* huart;
 	uint8_t buff[20]; //temp buffer used to read data
-
-
-	/* usable data*/
-	uint8_t start_scan_flag; /* 1 if the measured data are referred to the first sample of the scan round */
-	uint16_t quality; /* related to the strength of the received laser pulse */
+	/* data  */
+	uint8_t start_scan_flag; /* 1 if new 360° scan started*/
+	uint8_t quality; /* related to the strength of the received laser pulse */
 	float angle; /* angular displacement of the point */
 	float distance; /* distance from the lidar to the point */
-
-
 } mobirec_lidar_HandleTypeDef;
 
 
